@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.7.1'
+gem 'rails', '5.2.4.4'
 
 group :assets do
   gem 'sass-rails'
@@ -11,7 +11,7 @@ group :assets do
   gem 'jquery-ui-rails'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.4.0'
 gem "pg", ">= 0.14.1"
 gem "slim"
 gem 'slim-rails'
@@ -41,7 +41,7 @@ gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
 gem "bootstrap-sass"
 gem 'bootstrap-sass-extras'
 #gem 'font-awesome-rails'
-gem 'font-awesome-sass', '~> 4.4.0'
+gem 'font-awesome-sass', '~> 4.7.0'
 gem "devise", ">= 2.1.2"
 gem "devise_invitable", ">= 1.1.1"
 gem "devise-encryptable"
@@ -50,7 +50,6 @@ gem 'devise-i18n'
 gem "responders"
 
 gem "simple_form", '>= 3'
-gem "quiet_assets", ">= 1.0.1", :group => :development
 
 gem 'puma'
 gem 'god'

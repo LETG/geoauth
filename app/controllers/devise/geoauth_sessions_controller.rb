@@ -1,6 +1,6 @@
 module Devise
   class GeoauthSessionsController < Devise::SessionsController
-    before_filter :save_referer
+    before_action :save_referer
 
     def destroy
       logger.info "Delete all cookies"
