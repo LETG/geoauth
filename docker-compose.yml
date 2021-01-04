@@ -1,0 +1,60 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      args:
+        RUBY_VERSION: '2.6.6'
+        PG_MAJOR: '12'
+        NODE_MAJOR: '10'
+    tmpfs:
+      - /tmp
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app:cached
+      - rails_cache:/app/tmp/cache
+      - bundle:/bundle
+      - ./docker/.psqlrc:/root/.psqlrc:ro
+    environment:
+      - BUNDLER_VERSION=2.1.4
+      - NODE_ENV=development
+      - RAILS_ENV=${RAILS_ENV:-development}
+      - BOOTSNAP_CACHE_DIR=/bundle/bootsnap
+      - WEB_CONCURRENCY=1
+      - HISTFILE=/app/log/.bash_history
+      - PSQL_HISTFILE=/app/log/.psql_history
+      - EDITOR=vim
+      - MAILDEV_URL=maildev://maildev@maildev:25
+    command: docker/run
+    ports:
+      - '3000:3000'
+      - '3035:3035'
+    depends_on:
+      - postgres
+      - maildev
+
+  maildev:
+    image: djfarrelly/maildev
+    ports:
+      - "1080:80"
+      - "1025:25"
+
+  postgres:
+    image: postgres:12.4
+    volumes:
+      - .psqlrc:/root/.psqlrc:ro
+      - postgres:/var/lib/postgresql/data
+      - ./log:/root/log:cached
+    environment:
+      - PSQL_HISTFILE=/root/log/.psql_history
+      - POSTGRES_PASSWORD=password
+    ports:
+      - 5432:5432
+
+volumes:
+  postgres:
+  bundle:
+  rails_cache:
