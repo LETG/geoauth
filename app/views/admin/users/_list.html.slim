@@ -9,7 +9,7 @@ table.users.table
       th= sort_link @q, :created_at
       th
         .download-link
-          = link_to 'export users', url_for(format: 'csv', params: params.dup.except(:action, :controller))
+          = link_to 'export users', url_for(format: 'csv', params: params.permit.dup.except(:action, :controller))
           = icon('file-excel-o')
     
     tbody
