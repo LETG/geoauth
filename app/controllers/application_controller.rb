@@ -80,7 +80,7 @@ class ApplicationController < ActionController::Base
 
     logger.info response.headers.inspect
 
-    render nothing: true
+    render body: nil
   end
 
   protected
