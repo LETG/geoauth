@@ -1,8 +1,8 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+# Read about factories at https://github.com/thoughtbot/factory_bot
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :group do
-    name "MyString"
-    description "MyString"
+    name { "MyString" }
+    description { "MyString" }
   end
 end

@@ -37,7 +37,7 @@ end
 gem "rspec-rails", ">= 2.11.4", :group => [:development, :test]
 gem "capybara", ">= 1.1.2", :group => :test
 gem "email_spec", ">= 1.2.1", :group => :test
-gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
+gem "factory_bot_rails", ">= 4.1.0", :group => [:development, :test]
 gem "bootstrap-sass"
 gem 'bootstrap-sass-extras'
 #gem 'font-awesome-rails'

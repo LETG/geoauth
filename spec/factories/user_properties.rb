@@ -1,10 +1,10 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
+# Read about factories at https://github.com/thoughtbot/factory_bot
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :user_property do
-    users ""
-    username "MyString"
-    propname "MyString"
-    propvalue "MyString"
+    users { "" }
+    username { "MyString" }
+    propname { "MyString" }
+    propvalue { "MyString" }
   end
 end

@@ -1,8 +1,8 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :identity do
     user nil
-provider "MyString"
-extern_uid "MyString"
+provider { "MyString" }
+extern_uid { "MyString" }
   end
 
 end
