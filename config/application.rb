@@ -1,6 +1,10 @@
 require_relative 'boot'
 
 require 'rails/all'
+# for assets url computation in production
+# otherwise links are generated with /javascripts and /stylesheets prefixes instead of /assets
+# it shouldn't be needed but it doesn't work without loading sprockets manually on this application
+require 'sprockets/railtie'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.

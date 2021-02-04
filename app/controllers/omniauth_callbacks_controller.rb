@@ -1,4 +1,5 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  protect_from_forgery with: :exception
   skip_before_action :verify_authenticity_token
 
   def self.provides_callback_for(provider)
