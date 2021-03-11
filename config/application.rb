@@ -26,7 +26,9 @@ module Geoauth
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     # config.active_record.raise_in_transactional_callbacks = true
-    config.autoload_paths << Rails.root.join('extras')
+    # eager load instead of autoload for Rails 5.2
+    # https://stackoverflow.com/a/44985745
+    config.eager_load_paths << Rails.root.join('extras')
 
     # config.web_console.whitelisted_ips = '10.0.2.0/24'
   end
